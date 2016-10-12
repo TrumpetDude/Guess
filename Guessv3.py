@@ -1,12 +1,14 @@
-
-'''
+''
 Current Problems:
-AI GUesses should be put in methods
+AI Guesses should be put in methods
 Incomplete sections:
 AI Levels 2 and 4
 2=Random but wont guess a number twice
 4=Always guesses right in middle of max/mid range
 '''
+#Clear Screen
+for clear in range (1,30):
+    print("\n")
 #Import necessary libraries and set variables
 from random import randint
 from time import sleep
@@ -53,7 +55,7 @@ for limit in range(1,rounds+1):
     totalGuesses=totalGuesses+guesses
     score=score+limit*10-guesses
     if guess==number:
-        print("\nCorrect!")
+        print("Correct!")
     
     #Adds bonus points for first try
     if guesses==1:
@@ -61,7 +63,9 @@ for limit in range(1,rounds+1):
         score=score+limit*10
 
     #Round summary
-    print("Guesses:",guesses,"\n+",limit*10-guesses,"Points","\nTotal guesses so far:",totalGuesses,"\nScore so far:",score)
+    print("Guesses:",guesses,"\n+",limit*10-guesses,"Points")
+    if limit!=rounds:
+        print("\nTotal guesses so far:",totalGuesses,"\nScore so far:",score)
     sleep(1)
 
     #Computer Guesses Your Number
@@ -72,7 +76,7 @@ for limit in range(1,rounds+1):
         if userNum>limit*10 or userNum<1:
             print("CHEATER!!!!!\nGAME OVER!!!!\nYOU LOSE!!!!!")
             sys.exit()
-    
+            
     #Methods need to be defined in a separate program
 
     if AILevel==1:
@@ -90,7 +94,7 @@ for limit in range(1,rounds+1):
         totalCompGuesses=totalCompGuesses+compGuesses
         compScore=compScore+limit*10-compGuesses
         if currentCompGuess==userNum:
-            print("\nCorrect!")
+            print("Correct!")
         if compGuesses==1:
             print("First Try!\n+",limit*10,"Points!")
             compScore=compScore+limit*10
@@ -126,7 +130,7 @@ for limit in range(1,rounds+1):
         totalCompGuesses=totalCompGuesses+compGuesses
         compScore=compScore+limit*10-compGuesses
         if currentCompGuess==userNum:
-            print("\nCorrect!")
+            print("Correct!")
         if compGuesses==1:
             print("First Try!\n+",limit*10,"Points!")
             compScore=compScore+limit*10
@@ -166,7 +170,7 @@ for limit in range(1,rounds+1):
         totalGuesses2=totalGuesses2+guesses2
         score2=score2+limit*10-guesses2
         if guess2==number2:
-            print("\nCorrect!")
+            print("Correct!")
         
         #Adds bonus points for first try
         if guesses2==1:
@@ -174,15 +178,17 @@ for limit in range(1,rounds+1):
             score2=score2+limit*10
 
         #Round summary
-        print("Guesses:",guesses2,"\n+",limit*10-guesses2,"Points","\nTotal guesses so far:",totalGuesses2,"\nScore so far:",score2)
+        print("Guesses:",guesses2,"\n+",limit*10-guesses2,"Points")
+        if limit!=rounds:
+            print("Total guesses so far:",totalGuesses2,"\nScore so far:",score2)
         sleep(1)
     
     
 #Game Summary
-if AILevel==1:
+if AILevel==0:
     print ("\n\nTotal Guesses:",totalGuesses,"\nScore:",score)
     sys.exit()
-    sys.exit()
+    
 elif AILevel==6:
     print ("\n\nPLAYER 1:\nTotal Guesses:",totalGuesses,"\nScore:",score,"\n\nPLAYER 2:\nTotal Guesses:",totalGuesses2,"\nScore:",score2)
     if score>score2:
@@ -200,3 +206,4 @@ else:
         print("\n\nYOU LOSE!")
     if score==compScore:
         print("\n\nTIE!")
+

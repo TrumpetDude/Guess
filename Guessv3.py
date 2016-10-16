@@ -1,4 +1,4 @@
-''
+'''
 Current Problems:
 AI Guesses should be put in methods
 Incomplete sections:
@@ -7,7 +7,7 @@ AI Levels 2 and 4
 4=Always guesses right in middle of max/mid range
 '''
 #Clear Screen
-for clear in range (1,30):
+for clear in range (30):
     print("\n")
 #Import necessary libraries and set variables
 from random import randint
@@ -106,6 +106,7 @@ for limit in range(1,rounds+1):
     if AILevel==2:
         pass
     
+    
     if AILevel==3:
         currentCompGuess=0
         compGuesses=0
@@ -140,7 +141,8 @@ for limit in range(1,rounds+1):
         sleep(1)
         
     if AILevel==4:
-        pass    
+        pass
+    
     if AILevel==5:
         totalCompGuesses=totalCompGuesses+1
         compScore=compScore+limit*10-1
@@ -206,4 +208,3 @@ else:
         print("\n\nYOU LOSE!")
     if score==compScore:
         print("\n\nTIE!")
-
